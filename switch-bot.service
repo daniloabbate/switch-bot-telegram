@@ -1,0 +1,15 @@
+[Unit]
+Description=switchbot
+Requires=network.target
+Requires=bluetooth.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u /home/pi/git/switch-bot/apri-portone.py --mac <switch::bot::mac::here> --password <switchbot-password-here> --token <telegram-bot-password-here>
+WorkingDirectory=/home/pi/git/switch-bot
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
