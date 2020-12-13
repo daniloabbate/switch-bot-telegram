@@ -37,10 +37,29 @@ sudo systemctl start switch-bot.service
 sudo systemctl enable switch-bot.service
 ``` 
 
+## Updating systemctl service file
+
 If you should happen to change the switch-bot.service file, you would then need to have it reloaded by systemctl as follows:
 ```bash
 sudo systemctl daemon-reload
 ``` 
+
+## Reading log messages
+You can see switch-bot.service related logs via `journalctl`. As a sample, following command follows logs for switch-bot.service, starting from the current system boot:
+```bash command-line
+pi@raspberry:~ $ journalctl -u switch-bot.service -b -f
+-- Logs begin at Thu 2019-02-14 10:11:59 GMT. --
+Dec 13 08:49:54 tre14 systemd[1]: Stopping switchbot...
+Dec 13 08:49:56 tre14 systemd[1]: switch-bot.service: Succeeded.
+Dec 13 08:49:56 tre14 systemd[1]: Stopped switchbot.
+Dec 13 08:49:56 tre14 systemd[1]: Started switchbot.
+Dec 13 08:50:59 tre14 sudo[1289]:     root : TTY=unknown ; PWD=/home/pi/git/switch-bot ; USER=root ; COMMAND=/usr/bin/systemctl restart bluetooth
+Dec 13 08:50:59 tre14 sudo[1289]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Dec 13 08:50:59 tre14 sudo[1289]: pam_unix(sudo:session): session closed for user root
+Dec 13 08:50:59 tre14 sudo[1292]:     root : TTY=unknown ; PWD=/home/pi/git/switch-bot ; USER=root ; COMMAND=/usr/bin/hciconfig hci0 reset
+Dec 13 08:50:59 tre14 sudo[1292]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Dec 13 08:50:59 tre14 sudo[1292]: pam_unix(sudo:session): session closed for user root
+```
 
 # Tested on
 
