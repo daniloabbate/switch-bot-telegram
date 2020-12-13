@@ -1,18 +1,18 @@
 # Dependencies installation
 
-```bash
-sudo apt-get --assume-yes install python3-pip
-sudo pip3 install pybluez
-sudo apt-get --assume-yes install libboost-python-dev
-sudo apt-get --assume-yes install libboost-thread-dev
-sudo apt-get --assume-yes install libbluetooth-dev
-sudo apt-get --assume-yes install libglib2.0
-sudo pip3 install gattlib
-git clone https://github.com/RoButton/switchbotpy.git
-cd switchbotpy/
-sudo python3 setup.py build
-sudo python3 setup.py install
-sudo pip3 install python-telegram-bot --upgrade
+```bash command-line
+pi@raspberry:~ $ sudo apt-get --assume-yes install python3-pip
+pi@raspberry:~ $ sudo pip3 install pybluez
+pi@raspberry:~ $ sudo apt-get --assume-yes install libboost-python-dev
+pi@raspberry:~ $ sudo apt-get --assume-yes install libboost-thread-dev
+pi@raspberry:~ $ sudo apt-get --assume-yes install libbluetooth-dev
+pi@raspberry:~ $ sudo apt-get --assume-yes install libglib2.0
+pi@raspberry:~ $ sudo pip3 install gattlib
+pi@raspberry:~ $ git clone https://github.com/RoButton/switchbotpy.git
+pi@raspberry:~ $ cd switchbotpy/
+pi@raspberry:~/switchbotpy/ $ sudo python3 setup.py build
+pi@raspberry:~/switchbotpy/ $ sudo python3 setup.py install
+pi@raspberry:~/switchbotpy/ $ sudo pip3 install python-telegram-bot --upgrade
 ``` 
 
 # How to run manually
@@ -31,10 +31,10 @@ Make sure that:
 We can use systemctl to configure switchbot (aka apri-portone.py) to be started up at system boot. Modify the switch-bot.service file from this repo to 
 to use your switchbot MAC Address, password and Telegram BOT API Token. *Heads-up* systemctl service file will not need double quotes around Switchbot password!
 
-```bash
-sudo cp switch-bot.service /etc/systemd/system/
-sudo systemctl start switch-bot.service
-sudo systemctl enable switch-bot.service
+```bash command-line
+pi@raspberry:~/switch-bot-telegram $ sudo cp switch-bot.service /etc/systemd/system/
+pi@raspberry:~/switch-bot-telegram $ sudo systemctl start switch-bot.service
+pi@raspberry:~/switch-bot-telegram $ sudo systemctl enable switch-bot.service
 ``` 
 
 ## Updating systemctl service file
